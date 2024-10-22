@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import { AuthContextType, AuthProviderProps } from '../types/types';
+import { AuthContextType, AuthProviderProps } from '../types';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../app';
 

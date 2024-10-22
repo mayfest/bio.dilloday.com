@@ -8,14 +8,11 @@ import styled, { ThemeProvider } from 'styled-components';
 import Link from './components/Link';
 import Social from './components/Social';
 import { theme } from './theme';
-import { useEffect, useState } from 'react';
-import { LinkData } from './types';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from './app';
 import MailingList from './components/MailingList';
 import Links from './components/Links';
 import { AnimatePresence } from 'framer-motion';
 import Admin from './AdminView';
+import { useBioLinks } from './_hooks/useBioLinks';
 
 const Background = styled.img`
   width: 100%;
@@ -73,26 +70,7 @@ const Footer = styled.p`
 `;
 
 export default function App() {
-  const [status, setStatus] = useState('');
-  const [links, setLinks] = useState<LinkData[] | null>(null);
-  useEffect(() => {
-    getDoc(doc(db, 'bio', 'content'))
-      .then((doc) => {
-        if (doc.exists()) {
-          setLinks(doc.data().links);
-        }
-      })
-      .catch((error) => {
-        setStatus(`Error getting links: ${error}`);
-      });
-
-    // no need to show loading status if load times are fast
-    const timeout = setTimeout(() => {
-      setStatus('Dilloading links...');
-    }, 2000);
-
-    return () => clearTimeout(timeout);
-  }, []);
+  const { links, status } = useBioLinks();
   return (
     <ThemeProvider theme={theme}>
       <AnimatePresence>
