@@ -16,3 +16,7 @@ export type AuthContextType = {
 export type AuthProviderProps = {
   children: React.ReactNode;
 };
+
+export type ProctedRouteProps = {
+  children: React.ReactNode;
+};
