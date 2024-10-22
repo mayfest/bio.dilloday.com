@@ -10,6 +10,13 @@ const Container = styled(motion.a)`
   border-radius: 16px;
   width: 100%;
   text-decoration: none;
+  padding: 16px 24px;
+  margin: 0;
+
+  font-family: inherit;
+  line-height: 1.5;
+  text-align: left;
+
   transition:
     background-color 150ms ease-in-out,
     color 150ms ease-in-out;
@@ -17,11 +24,19 @@ const Container = styled(motion.a)`
   &:hover {
     background: ${({ theme }) => theme.linkBackgroundHover};
     color: ${({ theme }) => theme.linkForegroundHover};
+    text-decoration: none;
   }
 `;
 
 const Text = styled.p`
   font-weight: 500;
+  margin: 0;
+  padding: 0;
+
+  font-size: 1rem;
+  line-height: 1.5;
+  color: inherit;
+  text-align: center;
 `;
 
 const variants = {

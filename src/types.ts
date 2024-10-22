@@ -20,3 +20,8 @@ export type AuthProviderProps = {
 export type ProctedRouteProps = {
   children: React.ReactNode;
 };
+
+export type BioItem = {
+  title: string;
+  url: string;
+};

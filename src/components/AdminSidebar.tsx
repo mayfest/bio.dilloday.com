@@ -1,48 +1,43 @@
 import { Sidebar, SidebarContent } from '@/components/ui/sidebar';
-import { Users, Settings, BarChart, FileText, Bell } from 'lucide-react';
+import { Users, Unlink2, Paintbrush } from 'lucide-react';
+
+const sidebarItems = [
+  {
+    title: 'Links',
+    icon: Unlink2,
+    href: '/admin',
+  },
+  {
+    title: 'Bio Theme',
+    icon: Paintbrush,
+    href: '/admin/theme',
+  },
+  {
+    title: 'Users',
+    icon: Users,
+    href: '/admin/users',
+  },
+];
 
 export function AdminSidebar() {
   return (
-    <Sidebar>
+    <Sidebar className="border-r border-border">
       <SidebarContent>
         <div className="px-3 py-4">
-          <h2 className="mb-4 text-lg font-semibold">Admin Panel</h2>
+          <h2 className="mb-4 text-lg font-semibold text-foreground">
+            Dillo Day Bio Links Admin
+          </h2>
           <nav className="space-y-2">
-            <a
-              href="/admin"
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded"
-            >
-              <BarChart className="w-5 h-5" />
-              <span>Dashboard</span>
-            </a>
-            <a
-              href="/admin/users"
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded"
-            >
-              <Users className="w-5 h-5" />
-              <span>Users</span>
-            </a>
-            <a
-              href="/admin/reports"
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded"
-            >
-              <FileText className="w-5 h-5" />
-              <span>Reports</span>
-            </a>
-            <a
-              href="/admin/notifications"
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded"
-            >
-              <Bell className="w-5 h-5" />
-              <span>Notifications</span>
-            </a>
-            <a
-              href="/admin/settings"
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded"
-            >
-              <Settings className="w-5 h-5" />
-              <span>Settings</span>
-            </a>
+            {sidebarItems.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                className="flex items-center justify-start gap-2 px-4 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-200"
+              >
+                <item.icon size={20} />
+                <span>{item.title}</span>
+              </a>
+            ))}
           </nav>
         </div>
       </SidebarContent>

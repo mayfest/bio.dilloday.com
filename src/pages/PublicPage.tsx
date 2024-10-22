@@ -72,40 +72,42 @@ export default function PublicView() {
 
   return (
     <AnimatePresence>
-      <Background src="/background.jpg" />
-      <Main>
-        <Logo src="/logo.png" />
-        <Title>Dillo Day</Title>
-        <Description>
-          The largest student-run music festival in the nation.
-        </Description>
-        <Socials>
-          <Social
-            icon={faInstagram}
-            link="https://www.instagram.com/dillo_day/"
-          />
-          <Social icon={faTiktok} link="https://www.tiktok.com/@dilloday" />
-          <Social
-            icon={faSpotify}
-            link="https://open.spotify.com/user/dillo_day"
-          />
-          <Social icon={faXTwitter} link="https://twitter.com/Dillo_Day" />
-        </Socials>
-        {links ? (
-          <Links>
-            {links.map((link) => (
-              <Link key={link.title} {...link} />
-            ))}
-          </Links>
-        ) : (
-          <StatusText>{status}</StatusText>
-        )}
+      <div className="app-layout">
+        <Background src="/background.jpg" />
+        <Main>
+          <Logo src="/logo.png" />
+          <Title>Dillo Day</Title>
+          <Description>
+            The largest student-run music festival in the nation.
+          </Description>
+          <Socials>
+            <Social
+              icon={faInstagram}
+              link="https://www.instagram.com/dillo_day/"
+            />
+            <Social icon={faTiktok} link="https://www.tiktok.com/@dilloday" />
+            <Social
+              icon={faSpotify}
+              link="https://open.spotify.com/user/dillo_day"
+            />
+            <Social icon={faXTwitter} link="https://twitter.com/Dillo_Day" />
+          </Socials>
+          {links ? (
+            <Links>
+              {links.map((link) => (
+                <Link key={link.title} {...link} />
+              ))}
+            </Links>
+          ) : (
+            <StatusText>{status}</StatusText>
+          )}
 
-        <MailingList />
-        <Footer>
-          Copyright © {new Date().getFullYear()} Mayfest Productions
-        </Footer>
-      </Main>
+          <MailingList />
+          <Footer>
+            Copyright © {new Date().getFullYear()} Mayfest Productions
+          </Footer>
+        </Main>
+      </div>
     </AnimatePresence>
   );
 }

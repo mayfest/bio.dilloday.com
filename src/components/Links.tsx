@@ -7,6 +7,10 @@ const Container = styled(motion.div)`
   gap: 16px;
   width: 100%;
   margin: 32px 0;
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 const variants = {
