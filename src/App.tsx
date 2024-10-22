@@ -9,6 +9,8 @@ import {
 import { useAuth } from './_hooks/useAuth';
 import { ProctedRouteProps } from './types';
 import PublicView from './pages/PublicPage';
+import { LoginPage } from './pages/LoginPage';
+import { AuthProvider } from './_contexts/AuthProvider';
 const ProtectedRoute = ({ children }: ProctedRouteProps) => {
   const { currUser, isAuthorized, loading } = useAuth();
 
@@ -27,14 +29,23 @@ const ProtectedRoute = ({ children }: ProctedRouteProps) => {
   return children;
 };
 
+function AppRoutes() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<PublicView />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<PublicView />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <AppRoutes />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
