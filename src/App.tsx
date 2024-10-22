@@ -15,6 +15,7 @@ import { db } from './app';
 import MailingList from './components/MailingList';
 import Links from './components/Links';
 import { AnimatePresence } from 'framer-motion';
+import Admin from './AdminView';
 
 const Background = styled.img`
   width: 100%;
@@ -130,6 +131,7 @@ export default function App() {
           </Footer>
         </Main>
       </AnimatePresence>
+      <Admin />
     </ThemeProvider>
   );
 }
