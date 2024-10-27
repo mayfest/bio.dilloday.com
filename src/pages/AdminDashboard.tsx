@@ -36,6 +36,7 @@ export function AdminDashboard() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<BioItem | null>(null);
   const [editedLink, setEditedLink] = useState<BioItem>({ title: '', url: '' });
+  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
 
   const handleEditClick = (link: BioItem) => {
     setSelectedLink(link);
@@ -59,16 +60,18 @@ export function AdminDashboard() {
   return (
     <SidebarProvider>
       <div className="admin-layout w-full min-h-screen bg-background">
-        <AdminSidebar />
+        <div>
+          <AdminSidebar />
+        </div>
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="flex h-16 items-center border-b border-border">
+          <header className="sticky top-0 z-30 flex h-16 items-center border-b border-border bg-background">
             <SidebarTrigger className="px-6" />
             <h1 className="text-xl font-semibold text-foreground">
               Link Manager
             </h1>
           </header>
-          <div className="flex-1 grid grid-cols-[1fr,640px] gap-6">
-            <main className="p-6 border-r border-border">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr,400px] xl:grid-cols-[1fr,640px] gap-6">
+            <main className="p-4 md:p-6 border-r border-border overflow-y-auto">
               <div className="flex flex-col items-center text-center mb-8">
                 <h1 className="text-2xl font-semibold text-foreground">
                   Manage Links
@@ -118,7 +121,7 @@ export function AdminDashboard() {
                                   >
                                     <GripVertical className="h-5 w-5 text-muted-foreground" />
                                   </div>
-                                  <div className="flex-1 min-w-0">
+                                  <div className="flex-1 min-w-0 mr-4">
                                     <h3 className="text-card-foreground font-medium">
                                       {link.title}
                                     </h3>
@@ -126,7 +129,7 @@ export function AdminDashboard() {
                                       {link.url}
                                     </p>
                                   </div>
-                                  <div className="flex gap-1">
+                                  <div className="flex gap-2">
                                     <Button
                                       variant="ghost"
                                       size="icon"
@@ -163,16 +166,20 @@ export function AdminDashboard() {
                 </DragDropContext>
               </div>
             </main>
-            <aside className="relative w-full overflow-y-auto border-l border-border">
-              {' '}
-              <div className="sticky top-16 w-full flex justify-center">
-                {' '}
-                <div className="w-full">
-                  {' '}
-                  <PublicView />
-                </div>
+            <aside className="hidden md:block relative border-l border-border">
+              <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+                <PublicView />
               </div>
             </aside>
+            <div className="md:hidden fixed bottom-4 right-4 z-20">
+              <Button
+                onClick={() => setIsPreviewModalOpen(true)}
+                size="lg"
+                className="rounded-full shadow-lg"
+              >
+                Preview
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -257,6 +264,17 @@ export function AdminDashboard() {
               </Button>
               <Button onClick={handleCreateNew}>Create Link</Button>
             </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        <Dialog open={isPreviewModalOpen} onOpenChange={setIsPreviewModalOpen}>
+          <DialogContent className="h-[90vh] w-full max-w-md mx-auto p-0">
+            <DialogHeader className="px-6 py-4 border-b">
+              <DialogTitle>Links in Bio Preview</DialogTitle>
+            </DialogHeader>
+            <div className="flex-1 overflow-y-auto">
+              <PublicView />
+            </div>
           </DialogContent>
         </Dialog>
       </div>

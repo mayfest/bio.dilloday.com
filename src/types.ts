@@ -25,3 +25,18 @@ export type BioItem = {
   title: string;
   url: string;
 };
+
+export interface Theme {
+  images: {
+    banner: string;
+    profile: string;
+  };
+  colors: {
+    primaryText: string;
+    secondaryText: string;
+    buttonBackground: string;
+    buttonText: string;
+    buttonHoverBackground: string;
+    buttonHoverText: string;
+  };
+}

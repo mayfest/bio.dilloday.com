@@ -25,7 +25,7 @@ export function AdminSidebar() {
       <SidebarContent>
         <div className="px-3 py-4">
           <h2 className="mb-4 text-lg font-semibold text-foreground">
-            Dillo Day Bio Links Admin
+            Dillo Day Bio Admin
           </h2>
           <nav className="space-y-2">
             {sidebarItems.map((item) => (

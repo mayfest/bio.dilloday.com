@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; /* White background */
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
@@ -59,31 +58,37 @@
     --chart-5: 340 75% 55%;
   }
 
-  html {
+  html,
+  body {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
+    height: 100%;
+    margin: 0;
+    background-color: white; /* Default background for other parts */
   }
 
   body {
-    @apply min-h-screen min-w-[320px] m-0;
+    margin: 0;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #13381f;
   }
 }
 
 @layer components {
   .app-layout {
-    @apply min-h-screen flex flex-col bg-[#13381f] text-[#f0e9d3] text-center;
-    html,
-    body {
-      @apply bg-[#13381f];
-    }
-
-    body {
-      @apply min-h-screen min-w-[320px] m-0;
-    }
+    @apply flex flex-col bg-[#13381f] text-[#f0e9d3] text-center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;
+    background-color: #13381f !important;
   }
 
   .admin-layout {
-    @apply min-h-screen flex bg-background text-foreground;
+    @apply min-h-screen h-full flex overflow-hidden;
   }
 }
