@@ -22,8 +22,8 @@ const sidebarItems = [
 export function AdminSidebar() {
   return (
     <Sidebar className="border-r border-border">
-      <SidebarContent>
-        <div className="px-3 py-4">
+      <SidebarContent className="h-full bg-background">
+        <div className="w-64 px-3 py-4">
           <h2 className="mb-4 text-lg font-semibold text-foreground">
             Dillo Day Bio Admin
           </h2>

@@ -91,4 +91,14 @@
   .admin-layout {
     @apply min-h-screen h-full flex overflow-hidden;
   }
+
+  /* Add styles for sidebar open state */
+  [data-state='open'] .sidebar {
+    @apply lg:relative fixed top-0 left-0 h-full z-40;
+  }
+
+  /* Style sidebar backdrop when open on mobile */
+  [data-state='open'] .sidebar-backdrop {
+    @apply fixed inset-0 bg-background/80 backdrop-blur-sm z-30 lg:hidden;
+  }
 }

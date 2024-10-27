@@ -58,11 +58,10 @@ export function AdminDashboard() {
   };
 
   return (
-    <SidebarProvider>
-      <div className="admin-layout w-full min-h-screen bg-background">
-        <div>
-          <AdminSidebar />
-        </div>
+    <SidebarProvider defaultOpen>
+      <div className="flex min-h-screen bg-background w-screen">
+        <AdminSidebar />
+
         <div className="flex-1 flex flex-col min-w-0">
           <header className="sticky top-0 z-30 flex h-16 items-center border-b border-border bg-background">
             <SidebarTrigger className="px-6" />
@@ -70,7 +69,7 @@ export function AdminDashboard() {
               Link Manager
             </h1>
           </header>
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr,400px] xl:grid-cols-[1fr,640px] gap-6">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr,320px] xl:grid-cols-[1fr,400px] gap-6">
             <main className="p-4 md:p-6 border-r border-border overflow-y-auto">
               <div className="flex flex-col items-center text-center mb-8">
                 <h1 className="text-2xl font-semibold text-foreground">
@@ -166,7 +165,7 @@ export function AdminDashboard() {
                 </DragDropContext>
               </div>
             </main>
-            <aside className="hidden md:block relative border-l border-border">
+            <aside className="hidden md:block relative border-2 border-border">
               <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
                 <PublicView />
               </div>
