@@ -12,6 +12,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -34,6 +44,7 @@ export function AdminDashboard() {
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<BioItem | null>(null);
   const [editedLink, setEditedLink] = useState<BioItem>({ title: '', url: '' });
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
@@ -57,9 +68,22 @@ export function AdminDashboard() {
     setEditedLink({ title: '', url: '' });
   };
 
+  const handleDeleteClick = (link: BioItem) => {
+    setSelectedLink(link);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (selectedLink) {
+      handleDeleteLink(selectedLink);
+      setIsDeleteModalOpen(false);
+      setSelectedLink(null);
+    }
+  };
+
   return (
     <SidebarProvider defaultOpen>
-      <div className="flex min-h-screen bg-background w-screen">
+      <div className="flex min-h-screen bg-background min-w-full">
         <AdminSidebar />
 
         <div className="flex-1 flex flex-col min-w-0">
@@ -69,7 +93,7 @@ export function AdminDashboard() {
               Link Manager
             </h1>
           </header>
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr,320px] xl:grid-cols-[1fr,400px] gap-6">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr,320px] xl:grid-cols-[1fr,400px]">
             <main className="p-4 md:p-6 border-r border-border overflow-y-auto">
               <div className="flex flex-col items-center text-center mb-8">
                 <h1 className="text-2xl font-semibold text-foreground">
@@ -139,7 +163,7 @@ export function AdminDashboard() {
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      onClick={() => handleDeleteLink(link)}
+                                      onClick={() => handleDeleteClick(link)}
                                     >
                                       <Trash2 className="h-4 w-4" />
                                     </Button>
@@ -165,7 +189,7 @@ export function AdminDashboard() {
                 </DragDropContext>
               </div>
             </main>
-            <aside className="hidden md:block relative border-2 border-border">
+            <aside className="hidden md:block relative border-l border-border">
               <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
                 <PublicView />
               </div>
@@ -265,6 +289,29 @@ export function AdminDashboard() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
+        <AlertDialog
+          open={isDeleteModalOpen}
+          onOpenChange={setIsDeleteModalOpen}
+        >
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Delete Link</AlertDialogTitle>
+              <AlertDialogDescription>
+                Are you sure you want to delete "{selectedLink?.title}"? This
+                action cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={() => setIsDeleteModalOpen(false)}>
+                Cancel
+              </AlertDialogCancel>
+              <AlertDialogAction onClick={handleDeleteConfirm}>
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
 
         <Dialog open={isPreviewModalOpen} onOpenChange={setIsPreviewModalOpen}>
           <DialogContent className="h-[90vh] w-full max-w-md mx-auto p-0">
