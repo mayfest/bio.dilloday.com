@@ -13,7 +13,7 @@ import { LoginPage } from './pages/LoginPage';
 import { AuthProvider } from './_contexts/AuthProvider';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { Toaster } from '@/components/ui/toaster';
-
+import { ThemeEditor } from '@/pages/ThemeEditor';
 const ProtectedRoute = ({ children }: ProctedRouteProps) => {
   const { currUser, isAuthorized, loading } = useAuth();
 
@@ -43,6 +43,15 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <AdminDashboard />
+              <Toaster />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/theme"
+          element={
+            <ProtectedRoute>
+              <ThemeEditor />
               <Toaster />
             </ProtectedRoute>
           }

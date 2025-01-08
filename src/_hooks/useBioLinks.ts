@@ -26,7 +26,6 @@ export const useBioLinks = (): UseBioLinksResult => {
 
     fetchLinks();
 
-    // no need to show loading status if load times are fast
     const timeout = setTimeout(() => {
       setStatus('Dilloading links...');
     }, 2000);

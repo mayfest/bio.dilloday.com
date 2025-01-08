@@ -60,32 +60,21 @@
 
   html,
   body {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    height: 100%;
-    margin: 0;
-    background-color: white; /* Default background for other parts */
-  }
-
-  body {
     margin: 0;
     min-width: 320px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #13381f;
   }
-}
 
-@layer components {
-  .app-layout {
-    @apply flex flex-col bg-[#13381f] text-[#f0e9d3] text-center;
-    min-height: 100vh;
-    width: 100%;
-    margin: 0;
-    overflow-y: auto;
-    background-color: #13381f !important;
+  @layer components {
+    .app-layout {
+      @apply flex flex-col text-[#f0e9d3] text-center;
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+      overflow-y: auto;
+    }
   }
 
   .admin-layout {

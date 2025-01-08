@@ -4,13 +4,20 @@ import {
   faTiktok,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Link from '../components/Link';
 import Social from '../components/Social';
 import MailingList from '../components/MailingList';
 import Links from '../components/Links';
 import { AnimatePresence } from 'framer-motion';
 import { useBioLinks } from '../_hooks/useBioLinks';
+import { useTheme as CustomTheme } from '@/hooks/useTheme';
+
+const PageWrapper = styled.div`
+  background: ${({ theme }) => theme.background};
+  min-height: 100vh;
+  width: 100%;
+`;
 
 const Background = styled.img`
   width: 100%;
@@ -30,6 +37,7 @@ const Main = styled.main`
   padding: 64px 32px;
   box-sizing: border-box;
   position: relative;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Logo = styled.img`
@@ -44,10 +52,12 @@ const Logo = styled.img`
 
 const Title = styled.h1`
   margin: 0;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Description = styled.p`
   margin: 0;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Socials = styled.div`
@@ -59,6 +69,7 @@ const Socials = styled.div`
 const StatusText = styled.p`
   opacity: 0.75;
   height: 256px;
+  color: ${({ theme }) => theme.text};
 `;
 
 const Footer = styled.p`
@@ -68,46 +79,63 @@ const Footer = styled.p`
 `;
 
 export default function PublicView() {
+  const { theme, loading } = CustomTheme();
   const { links, status } = useBioLinks();
 
-  return (
-    <AnimatePresence>
-      <div className="app-layout">
-        <Background src="/background.jpg" />
-        <Main>
-          <Logo src="/logo.png" />
-          <Title>Dillo Day</Title>
-          <Description>
-            The largest student-run music festival in the nation.
-          </Description>
-          <Socials>
-            <Social
-              icon={faInstagram}
-              link="https://www.instagram.com/dillo_day/"
-            />
-            <Social icon={faTiktok} link="https://www.tiktok.com/@dilloday" />
-            <Social
-              icon={faSpotify}
-              link="https://open.spotify.com/user/dillo_day"
-            />
-            <Social icon={faXTwitter} link="https://twitter.com/Dillo_Day" />
-          </Socials>
-          {links ? (
-            <Links>
-              {links.map((link) => (
-                <Link key={link.title} {...link} />
-              ))}
-            </Links>
-          ) : (
-            <StatusText>{status}</StatusText>
-          )}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-          <MailingList />
-          <Footer>
-            Copyright © {new Date().getFullYear()} Mayfest Productions
-          </Footer>
-        </Main>
-      </div>
-    </AnimatePresence>
+  const currentTheme = theme || {
+    background: '#ffffff',
+    text: '#000000',
+    linkBackground: '#f0f0f0',
+    linkBackgroundHover: '#e0e0e0',
+    linkForeground: '#000000',
+    linkForegroundHover: '#000000',
+    footerText: '#666666',
+  };
+
+  return (
+    <ThemeProvider theme={currentTheme}>
+      <AnimatePresence>
+        <PageWrapper>
+          <Background src="/background.jpg" />
+          <Main>
+            <Logo src="/logo.png" />
+            <Title>Dillo Day</Title>
+            <Description>
+              The largest student-run music festival in the nation.
+            </Description>
+            <Socials>
+              <Social
+                icon={faInstagram}
+                link="https://www.instagram.com/dillo_day/"
+              />
+              <Social icon={faTiktok} link="https://www.tiktok.com/@dilloday" />
+              <Social
+                icon={faSpotify}
+                link="https://open.spotify.com/user/dillo_day"
+              />
+              <Social icon={faXTwitter} link="https://twitter.com/Dillo_Day" />
+            </Socials>
+            {links ? (
+              <Links>
+                {links.map((link) => (
+                  <Link key={link.title} {...link} />
+                ))}
+              </Links>
+            ) : (
+              <StatusText>{status}</StatusText>
+            )}
+
+            <MailingList />
+            <Footer>
+              Copyright © {new Date().getFullYear()} Mayfest Productions
+            </Footer>
+          </Main>
+        </PageWrapper>
+      </AnimatePresence>
+    </ThemeProvider>
   );
 }

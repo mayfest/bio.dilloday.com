@@ -22,7 +22,7 @@ const Title = styled.p`
   text-align: left;
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.formTitle};
+  color: ${({ theme }) => theme.text};
   text-transform: uppercase;
 
   ${mobile} {
@@ -34,8 +34,7 @@ const Description = styled.p`
   text-align: left;
   margin: 0;
   font-size: 14px;
-  color: ${({ theme }) => theme.formText};
-
+  color: ${({ theme }) => theme.footerText};
   ${mobile} {
     text-align: center;
   }
@@ -59,8 +58,8 @@ const Row = styled.div`
 `;
 
 const Input = styled.input`
-  background: ${({ theme }) => theme.inputBackground};
-  color: ${({ theme }) => theme.inputForeground};
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -73,15 +72,15 @@ const Input = styled.input`
   box-sizing: border-box;
 
   &::placeholder {
-    color: ${({ theme }) => theme.inputPlaceholder};
+    color: ${({ theme }) => theme.footerText};
   }
 
   &:hover {
-    outline: 2px solid ${({ theme }) => theme.inputOutlineHover};
+    outline: 2px solid ${({ theme }) => theme.linkBackgroundHover};
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.inputOutlineFocus};
+    outline: 2px solid ${({ theme }) => theme.linkBackground};
   }
 
   ${mobile} {
