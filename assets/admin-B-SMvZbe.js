@@ -1,0 +1,1 @@
+import{j as e,t,a as r,c as i,R as n}from"./index-C1rQiICd.js";function s(){return e.jsx(t,{theme:r,children:e.jsx("div",{children:"hi"})})}i.createRoot(document.getElementById("root")).render(e.jsx(n.StrictMode,{children:e.jsx(s,{})}));
