@@ -77,13 +77,12 @@ const Logo = styled.img`
   z-index: 2;
 `;
 
-const Title = styled.h1`
+const TitleImage = styled.img`
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   margin: 0;
-  font-family: 'Ewert', cursive;
-  letter-spacing: 0.05em;
-  font-size: 5rem;
-  color: #ffb1cd;
-  font-weight: 700;
+  margin-bottom: 12px;
 `;
 
 const Description = styled.p`
@@ -139,7 +138,7 @@ export default function App() {
           <Background src="/background.jpg" />
           <Main>
             <Logo src="/pfpblue.png" />
-            <Title>Dillo Day</Title>
+            <TitleImage src="/dillodaycarnival@4x.png" alt="Dillo Day" />
             <Description>
               The largest student-run music festival in the nation.
             </Description>
