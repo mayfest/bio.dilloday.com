@@ -2,8 +2,8 @@ export const theme = {
   background: '#173885',
   primary: '#FFFFFF',
 
-  linkBackground: '#F6F2A3',
-  linkForeground: '#D61919',
+  linkBackground: '#FFB1CD',
+  linkForeground: '#173885',
   linkBackgroundHover: '#173885',
   linkForegroundHover: '#F6F2A3',
 

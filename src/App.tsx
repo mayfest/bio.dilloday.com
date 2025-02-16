@@ -82,6 +82,8 @@ const Title = styled.h1`
   font-family: 'Ewert', cursive;
   letter-spacing: 0.05em;
   font-size: 5rem;
+  color: #ffb1cd;
+  font-weight: 700;
 `;
 
 const Description = styled.p`
