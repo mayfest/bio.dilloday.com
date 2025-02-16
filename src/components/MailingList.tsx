@@ -20,8 +20,9 @@ const Text = styled.div`
 const Title = styled.p`
   margin: 0;
   text-align: left;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  margin-bottom: 8px;
   color: ${({ theme }) => theme.formTitle};
   text-transform: uppercase;
 
@@ -71,6 +72,7 @@ const Input = styled.input`
   font-weight: 500;
   width: 100%;
   box-sizing: border-box;
+  font-family: 'Rye';
 
   &::placeholder {
     color: ${({ theme }) => theme.inputPlaceholder};
@@ -91,6 +93,7 @@ const Input = styled.input`
 
 const Email = styled(Input)`
   flex: 75%;
+  font-family: 'Rye';
 `;
 
 const Submit = styled.button`
@@ -108,6 +111,7 @@ const Submit = styled.button`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: 'Rye';
 
   &:hover {
     background: ${({ theme }) => theme.linkBackgroundHover};

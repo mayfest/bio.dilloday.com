@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ewert&family=Rye&display=swap');
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  background-color: #09142f;
+  background-color: #173885;
   color: #e3ddde;
   text-align: center;
 }
