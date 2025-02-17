@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Container = styled(motion.a)`
   display: block;
-  border: 2px solid ${({ theme }) => theme.linkBackground};
+  border: 4px solid ${({ theme }) => theme.linkBackground};
   background: ${({ theme }) => theme.linkBackground};
   color: ${({ theme }) => theme.linkForeground};
   border-radius: 16px;
@@ -23,6 +23,7 @@ const Container = styled(motion.a)`
 const Text = styled.p`
   font-weight: 800;
   font-size: 18px;
+  font-family: Merriweather;
 `;
 
 const variants = {

@@ -88,6 +88,9 @@ const TitleImage = styled.img`
 const Description = styled.p`
   margin: 0;
   font-size: 1.25rem;
+  color: #f6f2a3;
+  font-family: Merriweather;
+  font-weight: 600;
 `;
 
 const Socials = styled.div`
