@@ -73,7 +73,7 @@ const Input = styled.input`
   font-weight: 500;
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Rye';
+  font-family: Merriweather;
 
   &::placeholder {
     color: ${({ theme }) => theme.inputPlaceholder};
@@ -94,7 +94,7 @@ const Input = styled.input`
 
 const Email = styled(Input)`
   flex: 75%;
-  font-family: 'Rye';
+  font-family: Merriweather;
 `;
 
 const Submit = styled.button`
@@ -109,7 +109,7 @@ const Submit = styled.button`
   width: 100%;
   box-sizing: border-box;
   flex: 25%;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: 'Rye';
