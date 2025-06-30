@@ -20,9 +20,8 @@ const Text = styled.div`
 const Title = styled.p`
   margin: 0;
   text-align: left;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 8px;
   color: ${({ theme }) => theme.formTitle};
   text-transform: uppercase;
 
@@ -34,8 +33,7 @@ const Title = styled.p`
 const Description = styled.p`
   text-align: left;
   margin: 0;
-  font-size: 16px;
-  font-family: Merriweather;
+  font-size: 14px;
   color: ${({ theme }) => theme.formText};
 
   ${mobile} {
@@ -73,7 +71,6 @@ const Input = styled.input`
   font-weight: 500;
   width: 100%;
   box-sizing: border-box;
-  font-family: Merriweather;
 
   &::placeholder {
     color: ${({ theme }) => theme.inputPlaceholder};
@@ -94,7 +91,6 @@ const Input = styled.input`
 
 const Email = styled(Input)`
   flex: 75%;
-  font-family: Merriweather;
 `;
 
 const Submit = styled.button`
@@ -109,11 +105,9 @@ const Submit = styled.button`
   width: 100%;
   box-sizing: border-box;
   flex: 25%;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Rye';
-  font-size: 16px;
 
   &:hover {
     background: ${({ theme }) => theme.linkBackgroundHover};
@@ -155,7 +149,7 @@ export default function MailingList() {
       }}
     >
       <Text>
-        <Title>Join the Dillo Day mailing list!</Title>
+        <Title>Join the Mayfest Productions mailing list!</Title>
         <Description>
           Don't miss out on the latest Dillo Day news and exclusive free stuff.
         </Description>

@@ -1,21 +1,21 @@
 export const theme = {
-  background: '#173885',
-  primary: '#f6f2a3',
+  background: '#09142f',
+  primary: '#e3ddde',
 
-  linkBackground: '#FFB1CD',
-  linkForeground: '#173885',
-  linkBackgroundHover: '#173885',
-  linkForegroundHover: '#F6F2A3',
+  linkBackground: '#e59BAF',
+  linkForeground: '#09142f',
+  linkBackgroundHover: '#09142f',
+  linkForegroundHover: '#e59BAF',
 
-  formTitle: '#f6f2a3',
-  formText: '#FFFFFF',
+  formTitle: '#e3ddde',
+  formText: '#e3ddde',
   inputBackground: '#1b223c',
-  inputForeground: '#F6F2A3',
-  inputPlaceholder: '#FFFFFF',
-  inputOutlineHover: '#F6F2A3',
-  inputOutlineFocus: '#F6F2A3',
+  inputForeground: '#09142f',
+  inputPlaceholder: '#e3ddde',
+  inputOutlineHover: '#e59BAF',
+  inputOutlineFocus: '#e59BAF',
 
-  footerText: '#FFFFFF',
+  footerText: '#e3ddde',
 };
 
 export const mobile = '@media (max-width: 640px)';
